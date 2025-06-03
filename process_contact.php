@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             mail($to, $emailSubject, $emailMessage, $headers);
 
             // Redirection avec message de succès
-            header('Location: contact.php?status=success');
+            header('Location: contact.html?status=success');
             exit;
 
         } catch (PDOException $e) {
@@ -84,11 +84,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Si erreurs, redirection avec les erreurs
     if (!empty($errors)) {
         $errorString = implode(',', $errors);
-        header('Location: contact.php?status=error&errors=' . urlencode($errorString));
+        header('Location: contact.html?status=error&errors=' . urlencode($errorString));
         exit;
     }
 } else {
     // Si accès direct au script, redirection vers la page de contact
-    header('Location: contact.php');
+    header('Location: contact.html');
     exit;
 } 
