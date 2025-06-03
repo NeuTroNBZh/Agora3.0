@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora - Communauté</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/logo.webp" alt="Logo Agora" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li class="has-dropdown">
+                    <a href="actualites.html">Actualités <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="evenements.html">Événements</a></li>
+                    </ul>
+                </li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li class="has-dropdown">
+                    <a href="createurs.html">Espace Créateurs <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="rejoindre.html">Rejoindre le Projet</a></li>
+                    </ul>
+                </li>
+                <li><a href="communaute.html">Communauté</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="community-hero">
+            <div class="hero-content">
+                <h1>La Communauté Agora</h1>
+                <p>Rejoins le Discord Agora pour discuter, jouer, participer à des événements et vivre l'aventure en direct !</p>
+            </div>
+        </section>
+
+        <div class="page-content">
+            <div class="community-flex">
+                <div class="community-main">
+                    <div class="community-info">
+                        <h2>Infos serveur</h2>
+                        <ul>
+                            <li><strong>Membres totaux :</strong> ~800</li>
+                            <li><strong>Dernier membre connecté :</strong> <span id="last-member" style="color:#ffe082;">Chargement...</span></li>
+                        </ul>
+                    </div>
+                    <section class="community-rules">
+                        <h2>⊗ Règlement du Serveur ⊗</h2>
+                        <div class="rules-list">
+                            <div class="rule-item"><span class="rule-number">1</span><p>Un minimum de respect est demandé à l'ensemble du serveur.</p></div>
+                            <div class="rule-item"><span class="rule-number">2</span><p>Le spam de messages, d'images, de liens ou d'abus de mentions est interdit.</p></div>
+                            <div class="rule-item"><span class="rule-number">3</span><p>L'upload d'images choquantes, sensibles, violentes ou à caractère sexuel est interdit.</p></div>
+                            <div class="rule-item"><span class="rule-number">4</span><p>Un minimum d'orthographe est conseillé pour la compréhension de tous.</p></div>
+                            <div class="rule-item"><span class="rule-number">5</span><p>Le hors-sujet n'est pas toléré dans les salons textuels (sauf no-mic).</p></div>
+                            <div class="rule-item"><span class="rule-number">6</span><p>La promotion sans accord d'un modérateur est interdite.</p></div>
+                            <div class="rule-item"><span class="rule-number">7</span><p>L'usage des bots hors sujet est interdit.</p></div>
+                            <div class="rule-item"><span class="rule-number">8</span><p>Respect des règles spécifiques aux salons vocaux : pas de saturation, pas de spam soundboard, pas d'AFK prolongé seul.</p></div>
+                            <div class="rule-item"><span class="rule-number">9</span><p>Sanctions progressives : réprimande, warn, mute, kick, ban selon la gravité et la répétition.</p></div>
+                            <div class="rule-item"><span class="rule-number">10</span><p>Faute grave (menace, harcèlement, scam, etc.) = ban immédiat et définitif.</p></div>
+                        </div>
+                        <p style="margin-top:2rem;">Merci de respecter ces règles pour garantir une bonne ambiance et l'équilibre du serveur. Le staff se réserve le droit d'agir pour le bien de la communauté.</p>
+                    </section>
+                </div>
+                <aside class="community-aside">
+                    <div class="discord-widget">
+                        <iframe src="https://discord.com/widget?id=1254007638161752177&theme=dark" width="350" height="400" allowtransparency="true" frameborder="0"></iframe>
+                        <a href="https://discord.gg/agora" target="_blank" class="btn btn-discord">Rejoindre le serveur Discord</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Agora est une plateforme communautaire dédiée aux créateurs de contenu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="actualites.html" class="footer-link">Actualités</a></li>
+                    <li><a href="videos.html" class="footer-link">Vidéos</a></li>
+                    <li><a href="evenements.html" class="footer-link">Événements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@agora.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+    <script>
+    // Met à jour dynamiquement le dernier membre connecté sans toucher au reste
+    fetch('https://discord.com/api/guilds/1254007638161752177/widget.json')
+      .then(res => res.json())
+      .then(data => {
+        const lastMember = data.members && data.members.length > 0 ? data.members[data.members.length - 1].username : 'N/A';
+        document.getElementById('last-member').textContent = lastMember;
+      })
+      .catch(() => {
+        document.getElementById('last-member').textContent = 'Indisponible';
+      });
+    </script>
+</body>
+</html> 

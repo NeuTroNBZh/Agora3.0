@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora - Vidéos</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/logo.webp" alt="Logo Agora" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li class="has-dropdown">
+                    <a href="actualites.html">Actualités <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="evenements.html">Événements</a></li>
+                    </ul>
+                </li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li class="has-dropdown">
+                    <a href="createurs.html">Espace Créateurs <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="rejoindre.html">Rejoindre le Projet</a></li>
+                    </ul>
+                </li>
+                <li><a href="communaute.html">Communauté</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="videos-header">
+            <h1>Vidéos d'AHNO</h1>
+            <p>Retrouvez toutes les vidéos d'AHNO en un seul endroit</p>
+        </section>
+
+        <div class="videos-container">
+            <div class="videos-filters">
+                <div class="search-box">
+                    <input type="text" id="search-videos" placeholder="Rechercher une vidéo...">
+                </div>
+                <div class="filter-group">
+                    <!-- <select id="category-filter">
+                        <option value="">Toutes les catégories</option>
+                        <option value="gameplay">Gameplay</option>
+                        <option value="tutorial">Tutoriel</option>
+                        <option value="bestof">Best-of</option>
+                        <option value="interview">Interview</option>
+                    </select> -->
+                    <select id="sort-filter">
+                        <option value="date">Plus récent</option>
+                        <option value="views">Plus vues</option>
+                        <option value="rating">Mieux notées</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="playlists-section">
+                <h2>Séries populaires</h2>
+                <div class="playlists-grid" id="playlists-container">
+                    <!-- Les playlists seront chargées dynamiquement -->
+                </div>
+                <div class="load-more-playlists">
+                    <button id="load-more-playlists-btn" class="btn btn-primary">Charger plus de playlists</button>
+                </div>
+            </div>
+
+            <div class="videos-grid" id="videos-container">
+                <!-- Les vidéos seront chargées dynamiquement -->
+            </div>
+
+            <div class="load-more">
+                <button id="load-more-btn" class="btn btn-primary">Charger plus de vidéos</button>
+            </div>
+        </div>
+
+        <!-- Modal pour la lecture de vidéo -->
+        <div id="video-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="video-player-container">
+                    <div id="video-player"></div>
+                </div>
+                <div class="video-details">
+                    <h2 id="modal-video-title"></h2>
+                    <div class="video-meta">
+                        <span id="modal-video-date"></span>
+                        <span id="modal-video-views"></span>
+                        <span id="modal-video-likes"></span>
+                    </div>
+                    <p id="modal-video-description"></p>
+                    <div class="video-actions">
+                        <a id="youtube-link" href="#" target="_blank" class="btn btn-youtube">
+                            Voir sur YouTube
+                        </a>
+                        <button id="share-btn" class="btn btn-share">
+                            Partager
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Agora est une plateforme communautaire dédiée aux créateurs de contenu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="videos.html">Vidéos</a></li>
+                    <li><a href="evenements.html">Événements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@agora.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

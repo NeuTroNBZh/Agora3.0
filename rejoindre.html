@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora - Rejoindre le Projet</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/logo.webp" alt="Logo Agora" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li class="has-dropdown">
+                    <a href="actualites.html">Actualités <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="evenements.html">Événements</a></li>
+                    </ul>
+                </li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li class="has-dropdown">
+                    <a href="createurs.html">Espace Créateurs <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="rejoindre.html">Rejoindre le Projet</a></li>
+                    </ul>
+                </li>
+                <li><a href="communaute.html">Communauté</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="join-hero">
+            <div class="hero-content">
+                <h1>Rejoindre Agora</h1>
+                <p>Devenez créateur partenaire et faites partie de notre communauté</p>
+            </div>
+        </section>
+
+        <div class="page-content">
+            <section class="join-form">
+                <form action="process_join.php" method="POST" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pseudo">Pseudo créateur *</label>
+                        <input type="text" id="pseudo" name="pseudo" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Catégorie de contenu *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Sélectionnez une catégorie</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="vlog">Vlog</option>
+                            <option value="tutorial">Tutoriel</option>
+                            <option value="other">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="platforms">Plateformes de diffusion *</label>
+                        <div class="platforms-grid">
+                            <label class="platform-item">
+                                <input type="checkbox" id="youtube" name="platforms[]" value="youtube">
+                                <i class="fab fa-youtube platform-logo" style="color:#ff0000"></i>
+                                YouTube
+                            </label>
+                            <label class="platform-item">
+                                <input type="checkbox" id="twitch" name="platforms[]" value="twitch">
+                                <i class="fab fa-twitch platform-logo" style="color:#9147ff"></i>
+                                Twitch
+                            </label>
+                            <label class="platform-item">
+                                <input type="checkbox" id="autre" name="platforms[]" value="autre">
+                                <i class="fas fa-globe platform-logo" style="color:#ffe082"></i>
+                                Autre
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="links">Liens vers vos réseaux sociaux *</label>
+                        <textarea id="links" name="links" rows="3" required placeholder="Collez ici les liens vers vos réseaux sociaux"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="description">Description de votre contenu *</label>
+                        <textarea id="description" name="description" rows="5" required placeholder="Décrivez votre contenu et votre style de création"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="portfolio">Portfolio (images/vidéos)</label>
+                        <input type="file" id="portfolio" name="portfolio[]" multiple accept="image/*,video/*">
+                        <small>Formats acceptés : JPG, PNG, MP4. Max 10MB par fichier.</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="motivation">Pourquoi souhaitez-vous rejoindre Agora ? *</label>
+                        <textarea id="motivation" name="motivation" rows="5" required placeholder="Expliquez votre motivation pour rejoindre notre communauté"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="checkbox-container">
+                            <input type="checkbox" name="terms" required>
+                            J'accepte les conditions d'utilisation et la politique de confidentialité *
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="followers">Nombre d'abonnés/followers *</label>
+                        <input type="number" id="followers" name="followers" required min="0" placeholder="Ex: 1200">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact">Contact (email ou Discord) *</label>
+                        <input type="text" id="contact" name="contact" required placeholder="ex: pseudo#1234 ou email@email.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="examples">Exemples de contenu marquants (liens)</label>
+                        <input type="url" id="examples" name="examples" placeholder="Lien vers une vidéo ou un portfolio (optionnel)">
+                    </div>
+
+                    <div class="form-group checkbox-container">
+                        <input type="checkbox" id="accept-rules" name="accept-rules" required>
+                        <label for="accept-rules">J'accepte la charte Agora et le traitement de mes données pour le recrutement.</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-large">Envoyer ma candidature</button>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Agora est une plateforme communautaire dédiée aux créateurs de contenu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul class="footer-links">
+                    <li><a href="actualites.html" class="footer-link">Actualités</a></li>
+                    <li><a href="videos.html" class="footer-link">Vidéos</a></li>
+                    <li><a href="evenements.html" class="footer-link">Événements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@agora.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

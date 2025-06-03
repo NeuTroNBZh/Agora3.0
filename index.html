@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora - Accueil</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+    <meta name="description" content="Agora : la plateforme communautaire des gamers et créateurs. Actualités, vidéos, événements, Discord, entraide et gaming.">
+    <meta property="og:title" content="Agora - Communauté Gaming & Créateurs">
+    <meta property="og:description" content="Rejoignez Agora, le hub des gamers et créateurs. Actualités, vidéos, événements, Discord et entraide !">
+    <meta property="og:image" content="https://agora.rip/assets/images/logos/logo.webp">
+    <meta property="og:url" content="https://agora.rip/">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agora - Communauté Gaming & Créateurs">
+    <meta name="twitter:description" content="Rejoignez Agora, le hub des gamers et créateurs. Actualités, vidéos, événements, Discord et entraide !">
+    <meta name="twitter:image" content="https://agora.rip/assets/images/logos/logo.webp">
+</head>
+<body class="home-bg">
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/logo.webp" alt="Logo Agora" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li class="has-dropdown">
+                    <a href="actualites.html">Actualités <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="evenements.html">Événements</a></li>
+                    </ul>
+                </li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li class="has-dropdown">
+                    <a href="createurs.html">Espace Créateurs <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="rejoindre.html">Rejoindre le Projet</a></li>
+                    </ul>
+                </li>
+                <li><a href="communaute.html">Communauté</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-home">
+            <img src="assets/images/logos/logo.webp" alt="Logo Agora" class="hero-logo">
+            <h1>Agora, le hub des gamers et créateurs</h1>
+            <p class="hero-desc">Rejoignez la communauté ! Plateforme ouverte à tous les jeux, tous les créateurs.<br>
+                <span class="founder">Fondé par <strong>AHNO</strong></span>
+            </p>
+        </section>
+
+        <!-- HIGHLIGHTS -->
+        <section class="highlights">
+            <div class="highlight-card video-highlight">
+                <h2>Dernière vidéo d'AHNO</h2>
+                <div id="youtube-latest" style="position:relative;cursor:pointer;"></div>
+                <p class="video-desc">Retrouvez la dernière vidéo d'AHNO sur sa chaîne YouTube !</p>
+                <a href="https://www.youtube.com/@AHNO-fr" target="_blank" class="btn btn-discord">Voir la chaîne</a>
+            </div>
+            <div class="highlight-card news-highlight">
+                <h2>Actualité récente</h2>
+                <h3>🎉 NOUVELLE CHANCE pour UN GIVEAWAY 🎉</h3>
+                <p class="news-excerpt">Re-bonjour à tous ! Nouveau post puisque la M4A4 "Not Howl" a été pris par son gagnant...<br>
+                <a href="actualites.html" class="btn btn-secondary">Lire l'actualité</a></p>
+            </div>
+            <div class="highlight-card event-highlight">
+                <h2>Prochain événement</h2>
+                <div class="event-info">
+                    <span class="event-title">À venir</span>
+                    <span class="event-date">-</span>
+                </div>
+                <p class="event-desc">Restez connectés, de nouveaux événements arrivent bientôt !</p>
+                <a href="evenements.html" class="btn btn-secondary">Voir le calendrier</a>
+            </div>
+        </section>
+
+        <!-- DISCORD WIDGET & CTA -->
+        <section class="discord-section">
+            <div class="discord-widget-cta">
+                <h2>Rejoins la communauté Discord</h2>
+                <p class="discord-desc">Participe à la vie d'Agora, discute, joue, partage et gagne des lots !</p>
+                <iframe src="https://discord.com/widget?id=1254007638161752177&theme=dark" width="350" height="300" allowtransparency="true" frameborder="0"></iframe>
+                <a href="https://discord.gg/agora" target="_blank" class="btn btn-discord">Rejoindre le serveur</a>
+            </div>
+        </section>
+
+        <!-- NAVIGATION RAPIDE -->
+        <section class="quick-nav">
+            <h2>Explore Agora</h2>
+            <div class="quick-nav-cards">
+                <a href="videos.html" class="quick-card">
+                    <img src="assets/images/videos/featured.jpg" alt="Vidéos">
+                    <span>Vidéos</span>
+                </a>
+                <a href="evenements.html" class="quick-card">
+                    <img src="assets/images/bg-topo.jpg" alt="Événements">
+                    <span>Événements</span>
+                </a>
+                <a href="actualites.html" class="quick-card">
+                    <img src="assets/images/bg-topo.jpg" alt="Actualités">
+                    <span>Actualités</span>
+                </a>
+                <a href="createurs.html" class="quick-card">
+                    <img src="assets/images/creators/ahno.jpg" alt="Créateurs">
+                    <span>Créateurs</span>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Agora est une plateforme communautaire dédiée aux créateurs de contenu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="videos.html">Vidéos</a></li>
+                    <li><a href="evenements.html">Événements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@agora.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+
+    <!-- Modal pour la lecture de vidéo -->
+    <div id="video-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <div class="video-player-container">
+                <div id="video-player"></div>
+            </div>
+            <div class="video-details">
+                <h2 id="modal-video-title"></h2>
+                <div class="video-meta">
+                    <span id="modal-video-date"></span>
+                    <span id="modal-video-views"></span>
+                    <span id="modal-video-likes"></span>
+                </div>
+                <p id="modal-video-description"></p>
+                <div class="video-actions">
+                    <a id="youtube-link" href="#" target="_blank" class="btn btn-youtube">
+                        Voir sur YouTube
+                    </a>
+                    <button id="share-btn" class="btn btn-share">
+                        Partager
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

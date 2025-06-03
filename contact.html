@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agora - Contact</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <header>
+        <nav class="main-nav">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="assets/images/logos/logo.webp" alt="Logo Agora" class="logo-img">
+                </a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Accueil</a></li>
+                <li class="has-dropdown">
+                    <a href="actualites.html">Actualités <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="evenements.html">Événements</a></li>
+                    </ul>
+                </li>
+                <li><a href="videos.html">Vidéos</a></li>
+                <li class="has-dropdown">
+                    <a href="createurs.html">Espace Créateurs <span class="chevron"></span></a>
+                    <ul class="dropdown">
+                        <li><a href="rejoindre.html">Rejoindre le Projet</a></li>
+                    </ul>
+                </li>
+                <li><a href="communaute.html">Communauté</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-header">
+            <h1>Contactez-nous</h1>
+            <p>Une question ? Une suggestion ? N'hésitez pas à nous contacter !</p>
+        </section>
+
+        <div class="contact-container">
+            <section class="contact-form">
+                <form action="process_contact.php" method="POST">
+                    <div class="form-group">
+                        <label for="name">Nom complet</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Sujet</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                </form>
+            </section>
+
+            <section class="contact-info">
+                <div class="info-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>contact@agora.com</p>
+                </div>
+
+                <div class="info-card">
+                    <i class="fab fa-discord"></i>
+                    <h3>Discord</h3>
+                    <p>Rejoignez notre serveur Discord</p>
+                    <a href="https://discord.gg/agora" target="_blank" class="btn btn-secondary">Rejoindre</a>
+                </div>
+
+                <div class="info-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Réponse</h3>
+                    <p>Nous répondons généralement dans les 24-48 heures</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>À propos</h3>
+                <p>Agora est une plateforme communautaire dédiée aux créateurs de contenu.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Liens rapides</h3>
+                <ul>
+                    <li><a href="actualites.html">Actualités</a></li>
+                    <li><a href="videos.html">Vidéos</a></li>
+                    <li><a href="evenements.html">Événements</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@agora.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html> 

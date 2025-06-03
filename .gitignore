@@ -1,0 +1,49 @@
+# Fichiers de configuration sensibles
+.env
+config/database.php
+
+# Fichiers de logs
+logs/
+*.log
+
+# Fichiers de cache
+cache/
+*.cache
+
+# Fichiers uploadés
+uploads/
+!uploads/.gitkeep
+
+# Fichiers système
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Fichiers d'IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Fichiers de dépendances
+vendor/
+node_modules/
+
+# Fichiers de build
+dist/
+build/
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*.swp
+*~
+
+# Fichiers de backup
+*.bak
+*.backup
+*_backup
+
+# Fichiers de test
+tests/coverage/
+.phpunit.result.cache 
