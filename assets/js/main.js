@@ -38,7 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.nav-links .has-dropdown > a').forEach(parentLink => {
         parentLink.addEventListener('click', function(e) {
             if (window.innerWidth <= 900) {
-                e.preventDefault();
                 const dropdown = this.nextElementSibling;
                 const parentLi = this.parentElement;
                 if (dropdown) {
@@ -48,6 +47,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         parentLi.classList.remove('open');
                     } else {
                         parentLi.classList.add('open');
+                    }
+                    // Empêcher la navigation uniquement si on clique sur la flèche
+                    if (e.target.classList.contains('chevron')) {
+                        e.preventDefault();
                     }
                 }
             }
