@@ -604,7 +604,7 @@ if (document.querySelector('.community-info')) {
 
 // === Pastille dynamique sur Communauté si membres en ligne ===
 function updateCommunityBadge() {
-    const navLink = document.querySelector('.nav-links a[href="communaute.html"]');
+    const navLink = document.querySelector('.nav-links a[href="communaute"]');
     if (!navLink) return;
     fetch('https://discord.com/api/guilds/1254007638161752177/widget.json')
       .then(res => res.json())
