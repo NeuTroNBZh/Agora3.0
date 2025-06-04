@@ -262,8 +262,20 @@ async function loadContent() {
         if (newsHighlight && data.actualites.length > 0) {
             const latestNews = data.actualites[0];
             newsHighlight.querySelector('h3').textContent = latestNews.titre;
+            
+            // Créer un élément temporaire pour manipuler le HTML
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = latestNews.excerpt;
+            const plainText = tempDiv.textContent || tempDiv.innerText || '';
+            
+            // Limiter le texte à 150 caractères
+            let shortExcerpt = plainText;
+            if (plainText.length > 150) {
+                shortExcerpt = plainText.slice(0, 150).trim() + '...';
+            }
+            
             newsHighlight.querySelector('.news-excerpt').innerHTML = 
-                `${latestNews.excerpt}<br><a href="${latestNews.lien}" class="btn btn-secondary">Lire l'actualité</a>`;
+                `${shortExcerpt}<br><a href="${latestNews.lien}" class="btn btn-secondary">Lire la suite</a>`;
         }
 
         // Mise à jour de la page actualités si on est sur cette page

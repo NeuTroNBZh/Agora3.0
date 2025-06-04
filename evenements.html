@@ -7,6 +7,18 @@
     <meta name="description" content="Consultez le calendrier des événements organisés par Agora.">
     <link rel="canonical" href="https://agora.rip/evenements">
     <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/logos/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/logos/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logos/favicon.svg">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="assets/images/logos/apple-touch-icon.png">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="assets/images/logos/site.webmanifest">
+    <meta name="theme-color" content="#101c2c">
 </head>
 <body>
     <header>
@@ -39,25 +51,29 @@
 
     <main>
         <section class="events-header">
-            <h1>Calendrier des Événements</h1>
-            <p>Retrouvez tous les rendez-vous de la communauté Agora : tournois, soirées jeux, lives, rencontres et plus !</p>
+            <div class="hero-content">
+                <h1>Calendrier des Événements</h1>
+                <p>Retrouvez tous les rendez-vous de la communauté Agora : tournois, soirées jeux, lives, rencontres et plus !</p>
+            </div>
         </section>
 
-        <div class="events-calendar-container">
-            <div class="calendar-controls">
-                <button id="prev-month" class="btn btn-secondary">&lt;</button>
-                <span id="calendar-month-year"></span>
-                <button id="next-month" class="btn btn-secondary">&gt;</button>
+        <div class="events-container">
+            <div class="events-calendar-container">
+                <div class="calendar-controls">
+                    <button id="prev-month" class="btn btn-secondary">&lt;</button>
+                    <span id="calendar-month-year" class="calendar-title"></span>
+                    <button id="next-month" class="btn btn-secondary">&gt;</button>
+                </div>
+                <div id="calendar" class="calendar"></div>
             </div>
-            <div id="calendar" class="calendar"></div>
+
+            <section class="upcoming-events-section">
+                <h2>Prochains événements</h2>
+                <div class="events-list">
+                    <!-- Les événements seront chargés ici -->
+                </div>
+            </section>
         </div>
-
-        <section class="upcoming-events-section">
-            <h2>Prochains événements</h2>
-            <div class="events-list">
-                <!-- Les événements seront chargés ici -->
-            </div>
-        </section>
     </main>
 
     <!-- Modal de détail événement -->
@@ -67,12 +83,12 @@
             <div class="event-modal-body">
                 <h2 id="modal-event-title"></h2>
                 <div class="event-modal-meta">
-                    <span id="modal-event-date"></span>
-                    <span id="modal-event-type"></span>
-                    <span id="modal-event-organizer"></span>
+                    <span id="modal-event-date" class="event-date"></span>
+                    <span id="modal-event-type" class="event-type"></span>
+                    <span id="modal-event-organizer" class="event-organizer"></span>
                 </div>
-                <p id="modal-event-description"></p>
-                <div id="modal-event-participation"></div>
+                <p id="modal-event-description" class="event-description"></p>
+                <div id="modal-event-participation" class="event-participation"></div>
                 <div class="event-modal-actions">
                     <a id="modal-event-discord" href="#" target="_blank" class="btn btn-discord">Salon Discord</a>
                     <a id="modal-event-agenda" href="#" target="_blank" class="btn btn-secondary">Ajouter à mon agenda</a>
@@ -98,11 +114,11 @@
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: contact@agora.com</p>
+                <p>Email: contact@agora.rip</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+            <p>&copy; 2025 Agora. Tous droits réservés.</p>
         </div>
     </footer>
 

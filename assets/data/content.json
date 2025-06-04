@@ -3,12 +3,12 @@
         {
             "id": 1,
             "titre": "🎉 NOUVELLE CHANCE pour UN GIVEAWAY 🎉",
-            "excerpt": "Re-bonjour à tous ! Nouveau post puisque la M4A4 \"Not Howl\" a été pris par son gagnant...",
+            "excerpt": "Re-bonjour à tous !<br><br>Nouveau post puisque la M4A4 \"Not Howl\" a été pris par son gagnant,<br>Alors comme dit, je refais un tirage pour le Guts Knife de chez KNIFY! (et de son stand)<br><br>Je rappelle les conditions :<br><br>Comment participer : Simplement réagir à l'émoji<br><br>Pour participer, soyez en France Métropolitaine, désolé amis des Drom-Com, Belge ou Suisse, je préfère rester dans l'hexagone pour des raisons de simplicité d'envoi ! (mais vous en faites pas, d'autres giveaways arrivent !)<br>Comme d'habitude, pour récompenser les actifs, ils auront plus de chances de gagner<br><br>Le tirage aura lieu le Lundi 9 Juin 2025<br>Et le gagnant aura une semaine pour se manifester auquel cas je retirerai une nouvelle fois<br>Restez donc à l'affut !<br><br>Bonne chance à tous,<br>A bientôt dans un voc ou dans une prochaine vidéo !",
             "date": "2025-06-03",
             "lien": "actualites.html#news-1",
             "categorie": "discord",
             "tags": ["giveaway", "csgo"],
-            "image": "assets/images/news/giveaway.webp",
+            "image": "assets/images/news/GIVEAWAY.webp",
             "important": true
         },
         {
@@ -19,17 +19,43 @@
             "lien": "actualites.html#news-2",
             "categorie": "communauté",
             "tags": ["annonce", "créateurs", "discord", "csgo"],
-            "image": "assets/images/news/creators.webp",
+            "image": "assets/images/news/GORA_1.webp",
             "important": true
         }
     ],
     "evenements": [
         {
             "id": 1,
-            "titre": "À venir",
-            "date": "-",
-            "description": "Restez connectés, de nouveaux événements arrivent bientôt !",
+            "titre": "Ouverture Agora aux créateurs de contenu !",
+            "date": "01/07/2025",
+            "description": "L'Agora ouvre ses portes aux créateurs de contenu ! et vous pouvez désormais vous inscrire !",
             "lien": "evenements.html"
+        }
+    ],
+    "creators": [
+        {
+            "id": 1,
+            "nom": "AHNO",
+            "description": "Créateur de contenu Counter-Strike passionné",
+            "reseaux": {
+                "youtube": "https://www.youtube.com/@AHNO-fr",
+                "twitch": "https://www.twitch.tv/ahno_fr"
+            },
+            "image": "assets/images/creators/ahno.webp",
+            "categories": ["cs2", "gaming"],
+            "actif": true
+        },
+        {
+            "id": 2,
+            "nom": "NeuTroNBZh",
+            "description": "Créateur de contenu Counter-Strike",
+            "reseaux": {
+                "youtube": "https://www.youtube.com/@NeuTroNBZh",
+                "twitch": "https://www.twitch.tv/neutronbzh"
+            },
+            "image": "assets/images/creators/neutronbzh.webp",
+            "categories": ["cs2", "gaming"],
+            "actif": true
         }
     ]
 } 

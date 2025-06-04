@@ -3,10 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agora - Contact</title>
-    <meta name="description" content="Contactez l'équipe Agora pour toute question ou collaboration.">
+    <title>Contact - Agora</title>
+    <meta name="description" content="Contactez l'équipe Agora pour toute question ou partenariat.">
     <link rel="canonical" href="https://agora.rip/contact">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/logos/favicon.ico">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/logos/favicon-96x96.png">
+    <link rel="icon" type="image/svg+xml" href="assets/images/logos/favicon.svg">
+    
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" href="assets/images/logos/apple-touch-icon.png">
+    
+    <!-- Web App Manifest -->
+    <link rel="manifest" href="assets/images/logos/site.webmanifest">
+    <meta name="theme-color" content="#101c2c">
 </head>
 <body>
     <header>
@@ -32,67 +45,68 @@
                     </ul>
                 </li>
                 <li><a href="communaute">Communauté</a></li>
-                <li><a href="contact">Contact</a></li>
+                <li><a href="contact" class="active">Contact</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
-        <section class="contact-header">
-            <h1>Contactez-nous</h1>
-            <p>Une question ? Une suggestion ? N'hésitez pas à nous contacter !</p>
+        <section class="page-header">
+            <div class="container">
+                <h1>Contactez-nous</h1>
+                <p>Une question ? Une suggestion ? N'hésitez pas à nous contacter !</p>
+            </div>
         </section>
 
-        <div class="contact-container">
-            <section class="contact-form">
-                <form action="process_contact.php" method="POST">
-                    <div class="form-group">
-                        <label for="name">Nom complet</label>
-                        <input type="text" id="name" name="name" required>
+        <section class="contact-section">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>Nos coordonnées</h2>
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <i class="fas fa-envelope"></i>
+                                <h3>Email</h3>
+                                <p><a href="mailto:contact@agora.rip">contact@agora.rip</a></p>
+                            </div>
+                            <div class="contact-method">
+                                <i class="fab fa-discord"></i>
+                                <h3>Discord</h3>
+                                <p><a href="https://discord.gg/uqDBpmRE3m" target="_blank">Rejoindre notre serveur</a></p>
+                            </div>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                    <div class="contact-form-container">
+                        <h2>Envoyez-nous un message</h2>
+                        <div id="alert-container"></div>
+                        <form class="contact-form" method="POST" action="process_contact.php">
+                            <div class="form-group">
+                                <label for="name">Nom *</label>
+                                <input type="text" id="name" name="name" required placeholder="Votre nom">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="votre@email.com">
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Sujet *</label>
+                                <input type="text" id="subject" name="subject" required placeholder="Sujet de votre message">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" name="message" rows="5" required placeholder="Votre message..."></textarea>
+                            </div>
+                            <div class="form-group checkbox-container">
+                                <input type="checkbox" id="accept-rules" name="accept-rules" required>
+                                <label for="accept-rules">J'accepte le traitement de mes données pour le traitement de ma demande.</label>
+                            </div>
+                            <button type="submit" class="btn btn-large">Envoyer le message</button>
+                        </form>
                     </div>
-
-                    <div class="form-group">
-                        <label for="subject">Sujet</label>
-                        <input type="text" id="subject" name="subject" required>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                </form>
-            </section>
-
-            <section class="contact-info">
-                <div class="info-card">
-                    <i class="fas fa-envelope" aria-hidden="true"></i>
-                    <h3>Email</h3>
-                    <p>contact@agora.com</p>
                 </div>
-
-                <div class="info-card">
-                    <i class="fab fa-discord" aria-hidden="true"></i>
-                    <h3>Discord</h3>
-                    <p>Rejoignez notre serveur Discord</p>
-                    <a href="https://discord.gg/agora" target="_blank" class="btn btn-secondary">Rejoindre</a>
-                </div>
-
-                <div class="info-card">
-                    <i class="fas fa-clock" aria-hidden="true"></i>
-                    <h3>Réponse</h3>
-                    <p>Nous répondons généralement dans les 24-48 heures</p>
-                </div>
-            </section>
-        </div>
+            </div>
+        </section>
     </main>
-
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -101,22 +115,50 @@
             </div>
             <div class="footer-section">
                 <h3>Liens rapides</h3>
-                <ul>
-                    <li><a href="actualites">Actualités</a></li>
-                    <li><a href="videos">Vidéos</a></li>
-                    <li><a href="evenements">Événements</a></li>
+                <ul class="footer-links">
+                    <li><a href="actualites" class="footer-link">Actualités</a></li>
+                    <li><a href="videos" class="footer-link">Vidéos</a></li>
+                    <li><a href="evenements" class="footer-link">Événements</a></li>
                 </ul>
             </div>
             <div class="footer-section">
                 <h3>Contact</h3>
-                <p>Email: contact@agora.com</p>
+                <p>Email: contact@agora.rip</p>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Agora. Tous droits réservés.</p>
+        <div class="footer-bottom footer-legal">
+            <p>&copy; 2025 Agora. Tous droits réservés. | <a href="charte.html">Charte de la communauté</a> | <a href="mailto:contact@agora.rip">Contact</a></p>
+            <div class="footer-socials">
+                <a href="https://discord.gg/uqDBpmRE3m" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                <a href="https://youtube.com/@AHNO-fr" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                <a href="https://twitter.com/ahno" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+            </div>
+            <p style="margin-top:1rem;">Mentions légales : Agora, projet communautaire, contact@agora.rip. Hébergeur : OVH, 2 rue Kellermann, 59100 Roubaix, France.</p>
         </div>
     </footer>
-
     <script src="assets/js/main.js"></script>
+    <script>
+        // Fonction pour afficher les messages d'alerte
+        function showAlert(message, type) {
+            const alertContainer = document.getElementById('alert-container');
+            alertContainer.innerHTML = `<div class="alert alert-${type}">${message}</div>`;
+            
+            // Faire défiler jusqu'au message
+            alertContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+
+        // Vérifier les paramètres d'URL au chargement de la page
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const status = urlParams.get('status');
+            const message = urlParams.get('message');
+
+            if (status === 'success') {
+                showAlert('Votre message a été envoyé avec succès. Nous vous répondrons dans les plus brefs délais.', 'success');
+            } else if (status === 'error' && message) {
+                showAlert(decodeURIComponent(message), 'error');
+            }
+        });
+    </script>
 </body>
 </html> 
