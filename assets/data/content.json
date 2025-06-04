@@ -5,7 +5,7 @@
             "titre": "🎉 NOUVELLE CHANCE pour UN GIVEAWAY 🎉",
             "excerpt": "Re-bonjour à tous ! Nouveau post puisque la M4A4 \"Not Howl\" a été pris par son gagnant...",
             "date": "2025-06-03",
-            "lien": "actualites#news-1",
+            "lien": "actualites.html#news-1",
             "categorie": "discord",
             "tags": ["giveaway", "csgo"],
             "image": "assets/images/news/giveaway.webp",
@@ -16,7 +16,7 @@
             "titre": "Ouverture Agora aux créateurs de contenu !",
             "excerpt": "Bonjour à tous, j'espère que vous allez bien !<br><br>Comme vous le savez (ou peut-être pas), L'Agora a pour objectif d'être plus un serveur communautaire plutôt qu'un serveur pour ma chaîne YouTube (c'est pour ça que ça s'appelle pas AHNO server),<br><br>L'Agora ayant dépassé les 700 membres,<br>De ce fait je pense qu'il est l'heure d'ouvrir l'Agora à d'autres créateurs de contenu,<br>L'objectif étant que ce discord devienne, je l'espère, un grand hub de la communauté Counter Strike.<br><br>N'ayez pas peur d'être spam de notif, les rôles de notifications sont séparés entre créateur !<br>Ainsi ceux ayant mis mes notifications YouTube ou Twitch les rôles ont déjà été transférés<br>Les rôles notifs giveaways et sondages seront partagé entre créateurs, ça vous permettra d'avoir, on l'espère, plus d'interactivités avec le serveur et d'avoir pour nous plus de retour !<br><br>Le rôle partenaire sera donné aux créateurs rejoignant l'Agora ! (pour l'instant, le nom pourra changé, j'ai juste pas trouvé mieux)<br><br><strong>Si vous voulez intégrer cette équipe de créateur, plusieurs prérequis (un peu chiant mais il faut réguler)</strong><br><br>1- Être créateur de contenu sur Counter Strike, pas forcément exclusivement mais il faut du contenu CS<br>2- Être prêt à pub l'Agora, que ce soit en description de YouTube ou Twitch, qu'importe de quel manière<br>3- Avoir un minimum de 1000 abonnés YouTube ou 100 follow Twitch, pour les autres réseaux, à voir avec le staff<br>4- Avoir une régularité, au moins 1 contenu/semaine (évidemment si vous êtes en vacances ou quoi on est pas bête, le but étant juste d'avoir du contenu relativement régulier<br>5- Ne pas avoir de VAC ou de ban FaceIt, ça semble évident mais niquez vous les cheaters<br>6- Respecter les règles du serveur et y adhérer, logique ça aussi<br><br>Hésitez pas à postuler dans le channel ⁠🎫・support, en faisant un ticket, ensuite le staff examinera votre demande, on vous parlera un peu aussi et voilà, normalement ça devrait bien se passer<br>On pourra aussi faire des dérogations pour certaines personnes montrant un réel intêret pour le serveur et un investissement depuis longtemps<br><br>Merci d'avoir lu ce long pavé ! En espérant que cette nouveauté permettra l'essor de l'Agora,<br>On se dit à très bientôt dans une vidéo ou dans un vocal ! Passez une agréable journée ",
             "date": "2025-07-01",
-            "lien": "actualites#news-2",
+            "lien": "actualites.html#news-2",
             "categorie": "communauté",
             "tags": ["annonce", "créateurs", "discord", "csgo"],
             "image": "assets/images/news/creators.webp",
@@ -29,7 +29,7 @@
             "titre": "À venir",
             "date": "-",
             "description": "Restez connectés, de nouveaux événements arrivent bientôt !",
-            "lien": "evenements"
+            "lien": "evenements.html"
         }
     ]
 } 

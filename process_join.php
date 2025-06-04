@@ -112,19 +112,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'examples' => $examples,
                 'portfolioFiles' => implode(',', $portfolioFiles)
             ]);
-            echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Candidature envoyée</title><link rel="stylesheet" href="assets/css/style.css"></head><body><main style="min-height:60vh;display:flex;align-items:center;justify-content:center;"><div style="background:#fff;padding:2rem 3rem;border-radius:12px;box-shadow:0 2px 12px #0002;text-align:center;"><h1 style="color:#3498db;">Merci !</h1><p>Votre candidature a bien été envoyée.<br>L\'équipe Agora vous répondra rapidement.</p><a href="index" class="btn btn-primary" style="margin-top:1.5rem;">Retour à l\'accueil</a></div></main></body></html>';
+            echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Candidature envoyée</title><link rel="stylesheet" href="assets/css/style.css"></head><body><main style="min-height:60vh;display:flex;align-items:center;justify-content:center;"><div style="background:#fff;padding:2rem 3rem;border-radius:12px;box-shadow:0 2px 12px #0002;text-align:center;"><h1 style="color:#3498db;">Merci !</h1><p>Votre candidature a bien été envoyée.<br>L\'équipe Agora vous répondra rapidement.</p><a href="index.html" class="btn btn-primary" style="margin-top:1.5rem;">Retour à l\'accueil</a></div></main></body></html>';
         } catch (PDOException $e) {
-            echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Erreur</title><link rel="stylesheet" href="assets/css/style.css"></head><body><main style="min-height:60vh;display:flex;align-items:center;justify-content:center;"><div style="background:#fff;padding:2rem 3rem;border-radius:12px;box-shadow:0 2px 12px #0002;text-align:center;"><h1 style="color:#e74c3c;">Erreur</h1><p>Erreur SQL : ' . htmlspecialchars($e->getMessage()) . '</p><a href="rejoindre" class="btn btn-primary" style="margin-top:1.5rem;">Retour</a></div></main></body></html>';
+            echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Erreur</title><link rel="stylesheet" href="assets/css/style.css"></head><body><main style="min-height:60vh;display:flex;align-items:center;justify-content:center;"><div style="background:#fff;padding:2rem 3rem;border-radius:12px;box-shadow:0 2px 12px #0002;text-align:center;"><h1 style="color:#e74c3c;">Erreur</h1><p>Erreur SQL : ' . htmlspecialchars($e->getMessage()) . '</p><a href="rejoindre.html" class="btn btn-primary" style="margin-top:1.5rem;">Retour</a></div></main></body></html>';
         }
         exit;
     } else {
         // Affichage des erreurs de validation
         echo '<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><title>Erreur</title><link rel="stylesheet" href="assets/css/style.css"></head><body><main style="min-height:60vh;display:flex;align-items:center;justify-content:center;"><div style="background:#fff;padding:2rem 3rem;border-radius:12px;box-shadow:0 2px 12px #0002;text-align:center;"><h1 style="color:#e74c3c;">Erreur</h1><ul style="color:#e74c3c;">';
         foreach ($errors as $err) echo '<li>' . htmlspecialchars($err) . '</li>';
-        echo '</ul><a href="rejoindre" class="btn btn-primary" style="margin-top:1.5rem;">Retour</a></div></main></body></html>';
+        echo '</ul><a href="rejoindre.html" class="btn btn-primary" style="margin-top:1.5rem;">Retour</a></div></main></body></html>';
         exit;
     }
 } else {
-    header('Location: rejoindre');
+    header('Location: rejoindre.html');
     exit;
 } 

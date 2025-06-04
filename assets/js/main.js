@@ -70,7 +70,7 @@ window.addEventListener('scroll', function() {
 
 // === YouTube API: Affichage automatique de la dernière vidéo ===
 // Remplacez par votre propre clé API YouTube Data v3
-const YOUTUBE_API_KEY = 'AIzaSyCLBRJgzPj5bZwj7D1L98wMj8f3ZTEaIN8';
+const YOUTUBE_API_KEY = 'AIzaSyCLBRJgzPj5bZwj7D1L98wM';
 const CHANNEL_ID = 'UCsHvSmaxUOGttP39HAIVy9w'; // Remplacez par l'ID de la chaîne AHNO
 let latestVideoId = null;
 
@@ -90,11 +90,14 @@ function loadLatestYouTubeVideo() {
         </div>
     `;
 
-    fetch(`https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=5`)
+    const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=5`;
+    console.log('URL de l\'API:', apiUrl);
+
+    fetch(apiUrl)
         .then(response => {
-            console.log('Réponse reçue:', response.status);
+            console.log('Réponse reçue:', response.status, response.statusText);
             if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status}`);
+                throw new Error(`Erreur HTTP: ${response.status} ${response.statusText}`);
             }
             return response.json();
         })
@@ -134,6 +137,7 @@ function loadLatestYouTubeVideo() {
                 <div class="video-error">
                     <i class="fas fa-exclamation-circle"></i>
                     <p>Impossible de charger la vidéo</p>
+                    <p style="color: #ff6b6b; font-size: 0.9rem; margin-top: 0.5rem;">${error.message}</p>
                     <a href="https://www.youtube.com/@AHNO-fr" target="_blank" class="btn btn-youtube">
                         Voir la chaîne YouTube
                     </a>
@@ -437,17 +441,33 @@ async function loadPlaylistVideos(playlistId) {
 // Recherche et tri de vidéos (corrigée)
 function setupVideoSearch() {
     const searchInput = document.getElementById('search-videos');
+    const playlistsSection = document.querySelector('.playlists-section');
     const sortSelect = document.getElementById('sort-filter');
+    let currentSort = 'date';
+    
     if (searchInput) {
         searchInput.addEventListener('input', (e) => {
-            const query = e.target.value;
-            loadVideos(true, query, currentSort);
+            const searchQuery = e.target.value.trim();
+            if (searchQuery) {
+                // Cacher la section des playlists si une recherche est en cours
+                if (playlistsSection) {
+                    playlistsSection.style.display = 'none';
+                }
+                loadVideos(true, searchQuery, currentSort);
+            } else {
+                // Réafficher la section des playlists si la recherche est vide
+                if (playlistsSection) {
+                    playlistsSection.style.display = 'block';
+                }
+                loadVideos(true, '', currentSort);
+            }
         });
     }
+
     if (sortSelect) {
         sortSelect.addEventListener('change', (e) => {
             currentSort = e.target.value;
-            const query = searchInput ? searchInput.value : '';
+            const query = searchInput ? searchInput.value.trim() : '';
             loadVideos(true, query, currentSort);
         });
     }
@@ -604,7 +624,7 @@ if (document.querySelector('.community-info')) {
 
 // === Pastille dynamique sur Communauté si membres en ligne ===
 function updateCommunityBadge() {
-    const navLink = document.querySelector('.nav-links a[href="communaute"]');
+    const navLink = document.querySelector('.nav-links a[href="communaute.html"]');
     if (!navLink) return;
     fetch('https://discord.com/api/guilds/1254007638161752177/widget.json')
       .then(res => res.json())
