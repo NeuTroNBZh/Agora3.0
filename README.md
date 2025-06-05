@@ -103,6 +103,13 @@ agora/
 - Activer HTTPS
 - Mettre à jour régulièrement les dépendances
 
+## Cache des requêtes YouTube
+
+Pour réduire le nombre d'appels à l'API YouTube, l'application utilise une fonction
+`fetchWithCache` qui stocke les réponses dans le `localStorage` du navigateur.
+Chaque entrée est valide pendant 24 heures (`CACHE_TTL_SECONDS`). Passé ce délai,
+une nouvelle requête est envoyée afin de récupérer les dernières vidéos publiées.
+
 ## Contribution
 
 1. Fork le projet
