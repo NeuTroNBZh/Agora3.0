@@ -124,9 +124,7 @@ Ce projet est sous licence MIT. Voir le fichier `LICENSE` pour plus de détails.
 
 ## Contact
 
-- Email : contact@agora.com
-- Discord : [Rejoindre le serveur](https://discord.gg/your-invite-code)
-- Twitter : [@agora](https://twitter.com/agora)
+- Email : contact@agora.rip
 
 ## Remerciements
 
