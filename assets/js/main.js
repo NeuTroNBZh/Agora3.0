@@ -75,7 +75,38 @@ window.addEventListener('scroll', function() {
 // Remplacez par votre propre clé API YouTube Data v3
 const YOUTUBE_API_KEY = 'AIzaSyCLBRJgzPj5bZwj7D1L98wM';
 const CHANNEL_ID = 'UCsHvSmaxUOGttP39HAIVy9w'; // Remplacez par l'ID de la chaîne AHNO
+// Durée de validité du cache (24h) afin que les nouvelles vidéos soient détectées chaque jour
+const CACHE_TTL_SECONDS = 86400;
 let latestVideoId = null;
+
+// Récupération avec mise en cache basique pour limiter les requêtes API
+function fetchWithCache(url, ttl = CACHE_TTL_SECONDS) {
+    const key = 'yt_cache_' + encodeURIComponent(url);
+    try {
+        const cached = localStorage.getItem(key);
+        if (cached) {
+            const { timestamp, data } = JSON.parse(cached);
+            if (Date.now() - timestamp < ttl * 1000) {
+                return Promise.resolve(data);
+            }
+        }
+    } catch (e) {
+        console.warn('Cache read error', e);
+    }
+    return fetch(url)
+        .then(res => {
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            return res.json();
+        })
+        .then(data => {
+            try {
+                localStorage.setItem(key, JSON.stringify({ timestamp: Date.now(), data }));
+            } catch (e) {
+                console.warn('Cache write error', e);
+            }
+            return data;
+        });
+}
 
 function loadLatestYouTubeVideo() {
     console.log('Chargement de la dernière vidéo YouTube...');
@@ -96,14 +127,7 @@ function loadLatestYouTubeVideo() {
     const apiUrl = `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet,id&order=date&maxResults=5`;
     console.log('URL de l\'API:', apiUrl);
 
-    fetch(apiUrl)
-        .then(response => {
-            console.log('Réponse reçue:', response.status, response.statusText);
-            if (!response.ok) {
-                throw new Error(`Erreur HTTP: ${response.status} ${response.statusText}`);
-            }
-            return response.json();
-        })
+    fetchWithCache(apiUrl)
         .then(data => {
             console.log('Données reçues:', data);
             if (data.error) {
@@ -339,8 +363,7 @@ async function loadVideos(reset = false, searchQuery = '', sort = 'date') {
         else if (sort === 'rating') url += '&order=rating';
         if (nextPageToken) url += `&pageToken=${nextPageToken}`;
         if (searchQuery) url += `&q=${encodeURIComponent(searchQuery)}`;
-        const response = await fetch(url);
-        const data = await response.json();
+        const data = await fetchWithCache(url);
         if (data.nextPageToken) {
             nextPageToken = data.nextPageToken;
             document.querySelector('.load-more').style.display = 'block';
@@ -349,8 +372,7 @@ async function loadVideos(reset = false, searchQuery = '', sort = 'date') {
         }
         const videoIds = data.items.map(item => item.id.videoId).join(',');
         if (!videoIds) return;
-        const videoDetails = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails,statistics`);
-        const detailsData = await videoDetails.json();
+        const detailsData = await fetchWithCache(`https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails,statistics`);
         displayVideos(data.items, detailsData.items);
     } catch (error) {
         console.error('Erreur lors du chargement des vidéos:', error);
@@ -400,8 +422,7 @@ async function loadPlaylists(reset = false) {
     try {
         let url = `https://www.googleapis.com/youtube/v3/playlists?key=${YOUTUBE_API_KEY}&channelId=${CHANNEL_ID}&part=snippet&maxResults=6`;
         if (playlistNextPageToken) url += `&pageToken=${playlistNextPageToken}`;
-        const response = await fetch(url);
-        const data = await response.json();
+        const data = await fetchWithCache(url);
         if (data.nextPageToken) {
             playlistNextPageToken = data.nextPageToken;
             document.querySelector('.load-more-playlists').style.display = 'block';
@@ -434,12 +455,10 @@ async function loadPlaylists(reset = false) {
 // Chargement des vidéos d'une playlist
 async function loadPlaylistVideos(playlistId) {
     try {
-        const response = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?key=${YOUTUBE_API_KEY}&playlistId=${playlistId}&part=snippet&maxResults=50`);
-        const data = await response.json();
+        const data = await fetchWithCache(`https://www.googleapis.com/youtube/v3/playlistItems?key=${YOUTUBE_API_KEY}&playlistId=${playlistId}&part=snippet&maxResults=50`);
         
         const videoIds = data.items.map(item => item.snippet.resourceId.videoId).join(',');
-        const videoDetails = await fetch(`https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails,statistics`);
-        const detailsData = await videoDetails.json();
+        const detailsData = await fetchWithCache(`https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails,statistics`);
         
         const grid = document.querySelector('.videos-grid');
         grid.innerHTML = '';
