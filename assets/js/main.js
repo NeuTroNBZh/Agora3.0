@@ -4,11 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelector('.nav-links');
     const logo = document.querySelector('.logo');
 
-    // Ajouter un bouton hamburger pour mobile
-    const hamburger = document.createElement('button');
-    hamburger.classList.add('hamburger');
-    hamburger.innerHTML = '☰';
-    logo.appendChild(hamburger);
+    // Ajouter un bouton hamburger pour mobile s'il n'existe pas déjà
+    let hamburger = logo.querySelector('.hamburger');
+    if (!hamburger) {
+        hamburger = document.createElement('button');
+        hamburger.classList.add('hamburger');
+        hamburger.innerHTML = '☰';
+        logo.appendChild(hamburger);
+    }
 
     hamburger.addEventListener('click', () => {
         navLinks.classList.toggle('active');
