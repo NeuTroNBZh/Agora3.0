@@ -2073,12 +2073,12 @@ footer::before {
     position: relative;
     width: 90%;
     max-width: 1000px;
-    margin: 2rem auto;
+    margin: 5vh auto;
     background: rgba(20,30,50,0.98);
     border-radius: 16px;
-
-    height: 90vh;
-    overflow: hidden;
+    max-height: 90vh;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    flex: none;
     display: flex;
     flex-direction: column;
     max-height: 90vh;
