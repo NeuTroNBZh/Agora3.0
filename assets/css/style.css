@@ -2076,10 +2076,18 @@ footer::before {
     margin: 5vh auto;
     background: rgba(20,30,50,0.98);
     border-radius: 16px;
+
     max-height: 90vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .close-modal {
@@ -2097,6 +2105,8 @@ footer::before {
     background: #000;
     padding-top: 56.25%; /* 16:9 aspect ratio */
     flex: none;
+    flex: 0 0 67.5vh;
+    height: 67.5vh;
 }
 
 #video-player {
@@ -2195,6 +2205,9 @@ footer::before {
         padding-top: 56.25%;
         height: auto;
         flex: none;
+        max-height: 90vh;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
     
     .video-actions {
@@ -3006,6 +3019,9 @@ body.home-bg {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    max-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Fix pour les formulaires */
@@ -3046,6 +3062,9 @@ body.home-bg {
         overflow-x: hidden;
         overflow-y: auto;
         display: block;
+        max-height: 90vh;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 }
 
@@ -3079,6 +3098,11 @@ body.home-bg {
         max-height: 90vh;
         overflow-y: auto;
         display: block;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
     }
 
     /* Fix pour les widgets Discord */
