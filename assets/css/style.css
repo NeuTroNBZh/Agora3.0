@@ -1711,6 +1711,21 @@ footer::before {
     line-height: 1.6;
 }
 
+.news-excerpt a {
+    display: inline-block;
+    background: rgba(114, 137, 218, 0.2);
+    color: #90caf9;
+    padding: 0.3rem 0.8rem;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.news-excerpt a:hover {
+    background: rgba(114, 137, 218, 0.3);
+    color: #bbdefb;
+}
+
 .news-tags {
     display: flex;
     gap: 0.5rem;
@@ -2531,6 +2546,36 @@ body.home-bg {
 .event-desc {
     color: #b3b3b3;
     margin: 0.7rem 0 0.5rem 0;
+}
+
+.event-highlight .event-date {
+    color: #ffe082;
+    font-size: 1.1rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 224, 130, 0.1);
+    border-radius: 8px;
+    display: inline-block;
+    border: 1px solid rgba(255, 224, 130, 0.2);
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.event-highlight .event-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.event-highlight .event-title {
+    font-size: 1.3rem;
+    color: #90caf9;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5rem;
 }
 
 /* === VIDEO EMBED (responsive) === */

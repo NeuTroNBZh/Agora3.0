@@ -21,11 +21,29 @@
             "tags": ["annonce", "créateurs", "discord", "csgo"],
             "image": "assets/images/news/GORA_1.webp",
             "important": true
+        },
+        {
+            "id": 3,
+            "titre": "Mes playlists d'entraînement AimLab disponibles !",
+            "excerpt": "Bonjour à tous !<br><br>Concernant l'une de mes prochaines vidéos sur les Aim trainer (AimLab, KovaaK, ...)<br><br>Vu que j'ai plus de 300h de jeu sur AimLab,<br>J'ai fais plusieurs playlists d'entraînement et une de warmup<br><br>Vous pouvez y accéder via mon profil steam ou via ce lien-ci :<br><a href=\"https://steamcommunity.com/id/AHNO_fr/myworkshopfiles?appid=714010\">https://steamcommunity.com/id/AHNO_fr/myworkshopfiles?appid=714010</a><br><br>Passez une agréable journée et à bientôt dans un voc, ou en vidéo !",
+            "date": "2025-02-18",
+            "lien": "actualites.html#news-3",
+            "categorie": "csgo",
+            "tags": ["aimlab", "entraînement", "warmup"],
+            "image": "assets/images/news/aimlabs.png",
+            "important": false
         }
     ],
     "evenements": [
         {
             "id": 1,
+            "titre": "Tirage au sort du Giveaway Guts Knife KNIFY",
+            "date": "09/06/2025",
+            "description": "Tirage au sort du Giveaway pour le Guts Knife de chez KNIFY !",
+            "lien": "actualites.html#news-1"
+        },  
+        {
+            "id": 2,
             "titre": "Ouverture Agora aux créateurs de contenu !",
             "date": "01/07/2025",
             "description": "L'Agora ouvre ses portes aux créateurs de contenu ! et vous pouvez désormais vous inscrire !",
