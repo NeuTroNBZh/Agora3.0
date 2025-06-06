@@ -19,8 +19,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Fermer le menu mobile lors du clic sur un lien
     document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
+        link.addEventListener('click', (e) => {
+            // Ne pas fermer le menu si on clique sur un lien parent avec sous-menu
+            if (window.innerWidth <= 900 && link.parentElement.classList.contains('has-dropdown')) {
+                const dropdown = link.nextElementSibling;
+                // Ne fermer le menu que si on clique sur un lien qui n'est pas un parent avec sous-menu
+                if (!dropdown || dropdown.style.display === 'block') {
+                    navLinks.classList.remove('active');
+                }
+            } else {
+                navLinks.classList.remove('active');
+            }
         });
     });
 
@@ -37,24 +46,52 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Menu déroulant mobile : clic sur parent ouvre/ferme le sous-menu
+    // Menu déroulant : clic sur parent ouvre/ferme le sous-menu
     document.querySelectorAll('.nav-links .has-dropdown > a').forEach(parentLink => {
         parentLink.addEventListener('click', function(e) {
+            const dropdown = this.nextElementSibling;
+            const parentLi = this.parentElement;
+            
+            // Si on clique sur la flèche, on empêche la navigation et on toggle le menu
+            if (e.target.classList.contains('chevron')) {
+                e.preventDefault();
+                const isOpen = dropdown.style.display === 'block';
+                dropdown.style.display = isOpen ? 'none' : 'block';
+                parentLi.classList.toggle('open');
+                return;
+            }
+
+            // En version mobile uniquement
             if (window.innerWidth <= 900) {
-                const dropdown = this.nextElementSibling;
-                const parentLi = this.parentElement;
-                if (dropdown) {
-                    const isOpen = dropdown.style.display === 'block';
-                    dropdown.style.display = isOpen ? 'none' : 'block';
-                    if (isOpen) {
-                        parentLi.classList.remove('open');
-                    } else {
-                        parentLi.classList.add('open');
-                    }
-                    // Empêcher la navigation uniquement si on clique sur la flèche
-                    if (e.target.classList.contains('chevron')) {
-                        e.preventDefault();
-                    }
+                // Si le sous-menu n'est pas ouvert, on l'ouvre et on empêche la navigation
+                if (dropdown.style.display !== 'block') {
+                    e.preventDefault();
+                    dropdown.style.display = 'block';
+                    parentLi.classList.add('open');
+                }
+                // Si le sous-menu est déjà ouvert, on laisse la navigation se faire
+            }
+        });
+    });
+
+    // Gestion du hover pour les sous-menus en version desktop
+    document.querySelectorAll('.nav-links .has-dropdown').forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 900) {
+                const submenu = this.querySelector('.dropdown');
+                if (submenu) {
+                    submenu.style.display = 'block';
+                    this.classList.add('open');
+                }
+            }
+        });
+
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 900) {
+                const submenu = this.querySelector('.dropdown');
+                if (submenu) {
+                    submenu.style.display = 'none';
+                    this.classList.remove('open');
                 }
             }
         });

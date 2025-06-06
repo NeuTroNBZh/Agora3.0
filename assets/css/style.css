@@ -3,14 +3,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-iframe {
     max-width: 100%;
 }
 
@@ -21,6 +13,8 @@ body {
     background: #101c2c url('../images/backgrounds/fond_ahno.webp') center center/cover no-repeat fixed;
     min-height: 100vh;
     color: #f5f5f5;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 /* Header et Navigation */
@@ -90,6 +84,9 @@ header {
     list-style: none;
     margin: 0;
     padding: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
 }
 
 .nav-links li {
@@ -128,6 +125,7 @@ header {
 .nav-links .has-dropdown {
     position: relative;
 }
+
 .nav-links .chevron {
     display: inline-block;
     margin-left: 0.5em;
@@ -143,6 +141,7 @@ header {
     vertical-align: middle;
     margin-bottom: 0.08em;
 }
+
 .nav-links .has-dropdown.open > a .chevron,
 .nav-links .has-dropdown:hover > a .chevron,
 .nav-links .has-dropdown:focus-within > a .chevron {
@@ -151,10 +150,8 @@ header {
     border-bottom-color: #7289da;
     background: linear-gradient(135deg, #ffe082 60%, #7289da 100%);
 }
+
 .nav-links .dropdown {
-    display: block;
-    opacity: 0;
-    pointer-events: none;
     position: absolute;
     left: 0;
     top: 100%;
@@ -164,22 +161,32 @@ header {
     border-radius: 0 0 14px 14px;
     z-index: 1001;
     padding: 0.5rem 0;
-    transform: translateY(-10px) scaleY(0.98);
-    transition: opacity 0.22s cubic-bezier(.4,2,.6,1), transform 0.22s cubic-bezier(.4,2,.6,1);
+    transform: translateY(-10px);
+    transition: transform 0.22s cubic-bezier(.4,2,.6,1), opacity 0.22s cubic-bezier(.4,2,.6,1);
     list-style: none;
     margin: 0;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
 }
+
 .nav-links .has-dropdown:hover > .dropdown,
 .nav-links .has-dropdown:focus-within > .dropdown,
 .nav-links .has-dropdown.open > .dropdown {
     opacity: 1;
+    visibility: visible;
     pointer-events: auto;
-    transform: translateY(0) scaleY(1);
+    transform: translateY(0);
 }
+
 .nav-links .dropdown li {
     margin: 0;
     list-style: none;
 }
+
 .nav-links .dropdown a {
     color: #ffe082;
     padding: 0.7rem 1.5rem;
@@ -189,10 +196,12 @@ header {
     border-radius: 6px;
     transition: background 0.18s, color 0.18s;
 }
+
 .nav-links .dropdown a:hover {
     background: #7289da;
     color: #fff;
 }
+
 @media (max-width: 900px) {
     .hamburger {
         display: block;
@@ -243,6 +252,10 @@ header {
         padding: 0.5rem 0;
         margin-top: 0.5rem;
         display: none;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: none;
     }
 
     .nav-links .has-dropdown.open .dropdown {
@@ -758,6 +771,10 @@ footer::before {
     padding: 1.5rem;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .event-card:hover {
@@ -825,6 +842,11 @@ footer::before {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 @media (max-width: 768px) {
@@ -923,7 +945,7 @@ footer::before {
 }
 
 .creator-card {
-    background: var(--card-bg, #ffffff);
+    background: var(--card-bg, #7289da);
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -1637,6 +1659,10 @@ footer::before {
     overflow: hidden;
     box-shadow: 0 4px 24px #0008;
     transition: transform 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .news-card:hover {
@@ -1645,7 +1671,7 @@ footer::before {
 
 .news-image {
     width: 100%;
-    height: 200px;
+    height: auto;
     object-fit: cover;
 }
 
@@ -1705,6 +1731,11 @@ footer::before {
     justify-content: space-between;
     align-items: center;
     margin-top: 1rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .news-actions .btn {
@@ -1883,6 +1914,10 @@ footer::before {
     box-shadow: 0 4px 24px #0008;
     transition: transform 0.3s ease;
     cursor: pointer;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .playlist-card:hover {
@@ -1933,6 +1968,10 @@ footer::before {
     box-shadow: 0 4px 24px #0008;
     transition: transform 0.3s ease;
     cursor: pointer;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .video-card:hover {
@@ -2064,6 +2103,11 @@ footer::before {
     display: flex;
     gap: 1rem;
     margin-top: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
 }
 
 .btn-youtube {
@@ -2443,6 +2487,10 @@ body.home-bg {
     flex-direction: column;
     align-items: center;
     color: #fff;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
 }
 
 .highlight-card h2 {
@@ -2843,3 +2891,668 @@ body.home-bg {
         padding: 1.5rem;
     }
 } 
+
+/* === FIXES FOR MAIN SECTIONS === */
+.hero-home,
+.news-header,
+.videos-header,
+.community-hero,
+.join-hero {
+    width: 100%;
+    max-width: 100vw;
+    overflow: hidden;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.highlights,
+.news-grid,
+.playlists-grid,
+.events-list {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.community-flex {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    padding: 0 1rem;
+}
+
+.discord-widget {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.discord-widget iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 300px;
+}
+
+/* Fix pour les modales */
+.modal-content {
+    width: 90%;
+    max-width: 100%;
+    margin: 1rem auto;
+    overflow: hidden;
+}
+
+/* Fix pour les formulaires */
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Media queries pour les petits écrans */
+@media (max-width: 768px) {
+    .hero-home,
+    .news-header,
+    .videos-header,
+    .community-hero,
+    .join-hero {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .highlights,
+    .news-grid,
+    .playlists-grid,
+    .events-list {
+        padding: 0 0.5rem;
+    }
+    
+    .community-flex {
+        padding: 0 0.5rem;
+    }
+    
+    .modal-content {
+        width: 95%;
+    }
+}
+
+/* === MOBILE RESPONSIVE FIXES === */
+@media (max-width: 480px) {
+    /* Fix général pour tous les conteneurs */
+    .container,
+    .section,
+    .content-wrapper,
+    .hero-home,
+    .news-header,
+    .videos-header,
+    .community-hero,
+    .join-hero,
+    .highlights,
+    .news-grid,
+    .playlists-grid,
+    .events-list,
+    .community-flex,
+    .discord-widget,
+    .modal-content {
+        width: 100%;
+        max-width: 100vw;
+        padding: 0.5rem;
+        margin: 0;
+        overflow-x: hidden;
+    }
+
+    /* Fix pour les widgets Discord */
+    .discord-widget {
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+    }
+
+    .discord-widget iframe {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: 300px !important;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Fix pour les cartes */
+    .news-card,
+    .playlist-card,
+    .event-card,
+    .quick-card,
+    .highlight-card {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
+
+    /* Fix pour les images */
+    .news-image,
+    .playlist-thumbnail img,
+    .event-image,
+    .hero-logo {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    /* Fix pour les formulaires */
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    /* Fix pour les boutons */
+    .btn,
+    .btn-primary,
+    .btn-secondary {
+        width: 100%;
+        margin: 0.5rem 0;
+        padding: 0.8rem;
+        text-align: center;
+    }
+
+    /* Fix pour la navigation */
+    .nav-links {
+        width: 100%;
+        padding: 0.5rem;
+    }
+
+    .nav-links .dropdown {
+        width: 100%;
+        position: static;
+        padding: 0;
+    }
+
+    /* Fix pour les modales */
+    .modal-content {
+        width: 95%;
+        margin: 0.5rem auto;
+        padding: 0.5rem;
+    }
+
+    /* Fix pour les grilles */
+    .grid {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    /* Fix pour les sections flex */
+    .flex-container {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    /* Fix pour les textes */
+    h1 { font-size: 1.8rem; }
+    h2 { font-size: 1.5rem; }
+    h3 { font-size: 1.2rem; }
+    p { font-size: 1rem; }
+}
+
+/* Fix pour les tablettes */
+@media (min-width: 481px) and (max-width: 768px) {
+    .container,
+    .section,
+    .content-wrapper {
+        padding: 1rem;
+    }
+
+    .discord-widget iframe {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: 400px !important;
+    }
+
+    .grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+}
+
+/* Fix pour les grands écrans */
+@media (min-width: 769px) {
+    .container,
+    .section,
+    .content-wrapper {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 1rem 2rem;
+    }
+
+    .discord-widget iframe {
+        width: 100% !important;
+        min-width: 100% !important;
+        max-width: 100% !important;
+        height: 500px !important;
+    }
+}
+
+/* === ADDITIONAL RESPONSIVE FIXES === */
+/* Fix pour les tableaux */
+@media (max-width: 768px) {
+    table {
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    th, td {
+        min-width: 120px;
+        white-space: nowrap;
+    }
+}
+
+/* Fix pour les listes */
+@media (max-width: 480px) {
+    ul, ol {
+        padding-left: 1rem;
+        margin: 0.5rem 0;
+    }
+    
+    li {
+        margin-bottom: 0.5rem;
+    }
+}
+
+/* Fix pour les badges et étiquettes */
+@media (max-width: 480px) {
+    .badge,
+    .tag,
+    .news-category,
+    .event-type {
+        display: inline-block;
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+    }
+}
+
+/* Fix pour les icônes et boutons d'action */
+@media (max-width: 480px) {
+    .action-buttons,
+    .social-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        justify-content: center;
+    }
+    
+    .action-button,
+    .social-button {
+        flex: 1 1 auto;
+        min-width: 40px;
+        max-width: 100%;
+        padding: 0.5rem;
+        text-align: center;
+    }
+}
+
+/* Fix pour les modales et popups */
+@media (max-width: 480px) {
+    .modal,
+    .popup {
+        padding: 0.5rem;
+    }
+    
+    .modal-header,
+    .popup-header {
+        padding: 0.5rem;
+    }
+    
+    .modal-body,
+    .popup-body {
+        padding: 0.5rem;
+    }
+    
+    .modal-footer,
+    .popup-footer {
+        padding: 0.5rem;
+    }
+}
+
+/* Fix pour les formulaires complexes */
+@media (max-width: 480px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 0.5rem;
+    }
+    
+    .form-label {
+        display: block;
+        margin-bottom: 0.2rem;
+    }
+}
+
+/* Fix pour les widgets et embeds */
+@media (max-width: 480px) {
+    .widget,
+    .embed {
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 0.5rem 0;
+    }
+    
+    iframe,
+    embed,
+    object {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        min-height: 200px !important;
+    }
+}
+
+/* Fix pour les images de fond */
+@media (max-width: 480px) {
+    .bg-image {
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/* Fix pour les animations et transitions */
+@media (max-width: 480px) {
+    * {
+        transition-duration: 0.2s !important;
+    }
+}
+
+/* === FIXES FOR HIGHLIGHT CARDS AND WIDGETS === */
+.highlight-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.highlight-card img,
+.highlight-card iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Fix pour les widgets Discord */
+.discord-widget,
+.discord-widget-cta {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+.discord-widget iframe,
+.discord-widget-cta iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 100% !important;
+    height: 300px !important;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+/* Fix pour les cartes de contenu */
+.news-card,
+.playlist-card,
+.event-card,
+.quick-card,
+.feature-card,
+.creator-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0.5rem 0;
+    padding: 1rem;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+/* Fix pour les grilles */
+.highlights,
+.news-grid,
+.playlists-grid,
+.events-list,
+.creators-grid,
+.quick-nav-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Media queries pour les petits écrans */
+@media (max-width: 480px) {
+    .highlight-card,
+    .news-card,
+    .playlist-card,
+    .event-card,
+    .quick-card,
+    .feature-card,
+    .creator-card {
+        margin: 0.5rem 0;
+        padding: 0.8rem;
+    }
+
+    .highlights,
+    .news-grid,
+    .playlists-grid,
+    .events-list,
+    .creators-grid,
+    .quick-nav-cards {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+        padding: 0.5rem;
+    }
+
+    .discord-widget,
+    .discord-widget-cta {
+        padding: 0.8rem;
+    }
+
+    .discord-widget iframe,
+    .discord-widget-cta iframe {
+        height: 250px !important;
+    }
+}
+
+/* Fix pour les conteneurs flexibles */
+.highlights,
+.community-flex,
+.platforms-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+@media (min-width: 769px) {
+    .highlights,
+    .community-flex,
+    .platforms-grid {
+        flex-direction: row;
+        flex-wrap: wrap;
+        gap: 1rem;
+    }
+}
+
+/* Fix pour les images et médias */
+img,
+video,
+iframe,
+embed,
+object {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Fix pour les conteneurs de contenu */
+.content-wrapper,
+.section,
+.container {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    margin: 0;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+/* === ADDITIONAL FIXES FOR COMPLEX ELEMENTS === */
+/* Fix pour les cartes avec des images de fond */
+.highlight-card,
+.feature-card,
+.creator-card {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Fix pour les cartes avec du contenu superposé */
+.highlight-card::before,
+.feature-card::before,
+.creator-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.highlight-card > *,
+.feature-card > *,
+.creator-card > * {
+    position: relative;
+    z-index: 2;
+}
+
+/* Fix pour les widgets Discord dans les cartes */
+.highlight-card .discord-widget,
+.highlight-card .discord-widget-cta {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+
+/* Fix pour les grilles responsives */
+@media (max-width: 768px) {
+    .highlights,
+    .news-grid,
+    .playlists-grid,
+    .events-list,
+    .creators-grid,
+    .quick-nav-cards {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .highlights,
+    .news-grid,
+    .playlists-grid,
+    .events-list,
+    .creators-grid,
+    .quick-nav-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Fix pour les conteneurs avec des marges négatives */
+.highlights,
+.news-grid,
+.playlists-grid,
+.events-list,
+.creators-grid,
+.quick-nav-cards {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+/* Fix pour les éléments avec des largeurs fixes */
+.highlight-card,
+.news-card,
+.playlist-card,
+.event-card,
+.quick-card,
+.feature-card,
+.creator-card {
+    min-width: 0;
+    width: 100%;
+}
+
+/* Fix pour les éléments avec des hauteurs fixes */
+.discord-widget,
+.discord-widget-cta {
+    min-height: 0;
+    height: auto;
+}
+
+/* Fix pour les éléments avec des débordements */
+.highlight-card *,
+.news-card *,
+.playlist-card *,
+.event-card *,
+.quick-card *,
+.feature-card *,
+.creator-card * {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Fix pour les textes longs */
+.highlight-card h2,
+.news-card h2,
+.playlist-card h3,
+.event-card h3,
+.quick-card span,
+.feature-card h3,
+.creator-card h3 {
+    white-space: normal;
+    word-wrap: break-word;
+}
+
+/* Fix pour les images dans les cartes */
+.highlight-card img,
+.news-card img,
+.playlist-card img,
+.event-card img,
+.quick-card img,
+.feature-card img,
+.creator-card img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    aspect-ratio: 16/9;
+}
