@@ -2076,9 +2076,10 @@ footer::before {
     margin: 2rem auto;
     background: rgba(20,30,50,0.98);
     border-radius: 16px;
-    max-height: 90vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .close-modal {
@@ -2093,8 +2094,9 @@ footer::before {
 
 .video-player-container {
     position: relative;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
     background: #000;
+    flex: 0 0 67.5vh;
+    height: 67.5vh;
 }
 
 #video-player {
@@ -2108,6 +2110,8 @@ footer::before {
 .video-details {
     padding: 1.5rem;
     color: #fff;
+    overflow-y: auto;
+    flex: 1 1 auto;
 }
 
 .video-details h2 {
@@ -2180,9 +2184,17 @@ footer::before {
     .modal-content {
         width: 95%;
         margin: 1rem auto;
+        height: auto;
         max-height: 90vh;
         overflow-x: hidden;
         overflow-y: auto;
+        display: block;
+    }
+
+    .video-player-container {
+        padding-top: 56.25%;
+        height: auto;
+        flex: none;
     }
     
     .video-actions {
@@ -2990,9 +3002,10 @@ body.home-bg {
     width: 90%;
     max-width: 100%;
     margin: 1rem auto;
-    max-height: 90vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Fix pour les formulaires */
@@ -3028,9 +3041,11 @@ body.home-bg {
     
     .modal-content {
         width: 95%;
+        height: auto;
         max-height: 90vh;
         overflow-x: hidden;
         overflow-y: auto;
+        display: block;
     }
 }
 
@@ -3057,11 +3072,13 @@ body.home-bg {
         padding: 0.5rem;
         margin: 0;
         overflow-x: hidden;
+        height: auto;
     }
 
     .modal-content {
         max-height: 90vh;
         overflow-y: auto;
+        display: block;
     }
 
     /* Fix pour les widgets Discord */
@@ -3138,6 +3155,8 @@ body.home-bg {
         max-height: 90vh;
         overflow-x: hidden;
         overflow-y: auto;
+        display: block;
+        height: auto;
     }
 
     /* Fix pour les grilles */
