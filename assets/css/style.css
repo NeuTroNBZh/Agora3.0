@@ -2073,10 +2073,14 @@ footer::before {
     position: relative;
     width: 90%;
     max-width: 1000px;
-    margin: 2rem auto;
+    margin: 5vh auto;
     background: rgba(20,30,50,0.98);
     border-radius: 16px;
 
+    max-height: 90vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
     height: 90vh;
     overflow: hidden;
     display: flex;
@@ -2099,6 +2103,8 @@ footer::before {
 .video-player-container {
     position: relative;
     background: #000;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    flex: none;
     flex: 0 0 67.5vh;
     height: 67.5vh;
 }
@@ -3009,7 +3015,6 @@ body.home-bg {
     width: 90%;
     max-width: 100%;
     margin: 1rem auto;
-
     height: 90vh;
     overflow: hidden;
     display: flex;
