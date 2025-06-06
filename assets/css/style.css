@@ -2065,29 +2065,79 @@ footer::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(0, 0, 0, 0.9);
     z-index: 1000;
+    overflow: hidden;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-content {
     position: relative;
-    width: 90%;
-    max-width: 1000px;
-    margin: 5vh auto;
-    background: rgba(20,30,50,0.98);
-    border-radius: 16px;
+    background: linear-gradient(135deg, #181f2a 80%, #232c3e 100%);
+    margin: 5% auto;
+    padding: 2rem;
+    width: 80%;
+    max-width: 900px;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s ease-out;
+}
 
-    max-height: 90vh;
+.video-player-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Ratio 16:9 */
+    margin-bottom: 1.5rem;
+    border-radius: 12px;
     overflow: hidden;
+    background: #000;
+}
+
+#video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+#video-player iframe {
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+}
+
+.video-details {
+    padding: 1.5rem;
+    background: rgba(24, 31, 42, 0.5);
+    border-radius: 12px;
+    margin-top: 1rem;
+}
+
+.video-details h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.video-meta {
     display: flex;
-    flex-direction: column;
-    height: 90vh;
-    overflow: hidden;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.video-actions {
     display: flex;
-    flex-direction: column;
-    max-height: 90vh;
-    overflow-x: hidden;
-    overflow-y: auto;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }
 
 .close-modal {
@@ -2098,36 +2148,34 @@ footer::before {
     font-size: 2rem;
     cursor: pointer;
     z-index: 1;
+    background: rgba(0, 0, 0, 0.5);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
 }
 
-.video-player-container {
-    position: relative;
-    background: #000;
-    padding-top: 56.25%; /* 16:9 aspect ratio */
-    flex: none;
-    flex: 0 0 67.5vh;
-    height: 67.5vh;
+.close-modal:hover {
+    background: rgba(0, 0, 0, 0.8);
 }
 
-#video-player {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.video-details {
-    padding: 1.5rem;
-    color: #fff;
-    overflow-y: auto;
-    flex: 1 1 auto;
-}
-
-.video-details h2 {
-    color: #ffe082;
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
+@media (max-width: 768px) {
+    .modal-content {
+        width: 95%;
+        margin: 10% auto;
+        padding: 1rem;
+    }
+    
+    .video-player-container {
+        margin-bottom: 1rem;
+    }
+    
+    .video-details {
+        padding: 1rem;
+    }
 }
 
 .video-actions {
@@ -2194,17 +2242,6 @@ footer::before {
     .modal-content {
         width: 95%;
         margin: 1rem auto;
-        height: auto;
-        max-height: 90vh;
-        overflow-x: hidden;
-        overflow-y: auto;
-        display: block;
-    }
-
-    .video-player-container {
-        padding-top: 56.25%;
-        height: auto;
-        flex: none;
         max-height: 90vh;
         overflow-x: hidden;
         overflow-y: auto;
@@ -3015,10 +3052,6 @@ body.home-bg {
     width: 90%;
     max-width: 100%;
     margin: 1rem auto;
-    height: 90vh;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
     max-height: 90vh;
     overflow-x: hidden;
     overflow-y: auto;
@@ -3057,11 +3090,6 @@ body.home-bg {
     
     .modal-content {
         width: 95%;
-        height: auto;
-        max-height: 90vh;
-        overflow-x: hidden;
-        overflow-y: auto;
-        display: block;
         max-height: 90vh;
         overflow-x: hidden;
         overflow-y: auto;
@@ -3091,13 +3119,6 @@ body.home-bg {
         padding: 0.5rem;
         margin: 0;
         overflow-x: hidden;
-        height: auto;
-    }
-
-    .modal-content {
-        max-height: 90vh;
-        overflow-y: auto;
-        display: block;
     }
 
     .modal-content {
@@ -3179,8 +3200,6 @@ body.home-bg {
         max-height: 90vh;
         overflow-x: hidden;
         overflow-y: auto;
-        display: block;
-        height: auto;
     }
 
     /* Fix pour les grilles */
@@ -3661,4 +3680,242 @@ object {
     height: auto;
     object-fit: cover;
     aspect-ratio: 16/9;
+}
+
+/* Modal Video */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    background: linear-gradient(135deg, #181f2a 80%, #232c3e 100%);
+    width: 95%;
+    height: 95vh;
+    max-width: 900px;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.close-modal {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: rgba(0, 0, 0, 0.5);
+    color: #fff;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.close-modal:hover {
+    background: rgba(255, 0, 0, 0.7);
+    transform: scale(1.1);
+}
+
+.modal-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr;
+    height: 100%;
+    gap: 16px;
+    padding: 16px;
+}
+
+.video-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    /* Ratio 16:9 */
+    aspect-ratio: 16/9;
+}
+
+.video-player-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#video-player {
+    width: 100%;
+    height: 100%;
+}
+
+#video-player iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
+
+.info-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 16px;
+    background: rgba(24, 31, 42, 0.5);
+    border-radius: 12px;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 767px) {
+    .modal-content {
+        height: 90vh;
+    }
+
+    .modal-layout {
+        gap: 12px;
+        padding: 12px;
+    }
+
+    .video-section {
+        max-width: 100%;
+    }
+
+    .info-section {
+        padding: 12px;
+        max-width: 100%;
+    }
+
+    .video-actions {
+        flex-direction: column;
+    }
+
+    .video-actions .btn {
+        width: 100%;
+    }
+}
+
+@media (max-height: 600px) {
+    .modal-content {
+        height: 95vh;
+    }
+
+    .modal-layout {
+        gap: 8px;
+        padding: 8px;
+    }
+
+    .video-section {
+        max-width: 90%;
+    }
+
+    .info-section {
+        padding: 8px;
+        max-width: 90%;
+    }
+
+    .info-section {
+        gap: 8px;
+    }
+
+    .video-meta {
+        gap: 8px;
+    }
+
+    .video-actions {
+        gap: 8px;
+    }
+}
+
+.description-container {
+    position: relative;
+    margin: 8px 0;
+}
+
+#modal-video-description {
+    font-size: clamp(0.9rem, 1.5vw, 1rem);
+    line-height: 1.4;
+    color: #e0e0e0;
+    margin: 0;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    transition: all 0.3s ease;
+}
+
+#modal-video-description.expanded {
+    -webkit-line-clamp: unset;
+    max-height: none;
+}
+
+.show-more-btn {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(24, 31, 42, 0.8) 20%);
+    border: none;
+    color: #ffe082;
+    padding: 4px 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.show-more-btn:hover {
+    color: #fff;
+    transform: scale(1.1);
+}
+
+.show-more-btn.hidden {
+    display: none;
+}
+
+.video-meta {
+    display: flex;
+    gap: 16px;
+    font-size: clamp(0.8rem, 1.5vw, 0.9rem);
+    color: #a0a0a0;
+    margin: 8px 0;
+}
+
+.video-meta span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.video-meta i {
+    color: #ffe082;
 }

@@ -551,55 +551,89 @@ function setupVideoSearch() {
 function openVideoModal(videoId, snippet) {
     const modal = document.getElementById('video-modal');
     const player = document.getElementById('video-player');
-    const titleEl = document.getElementById('modal-video-title');
-    const descEl = document.getElementById('modal-video-description');
-    const ytLink = document.getElementById('youtube-link');
-    // Affiche le lecteur YouTube
-    player.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
-    if (snippet) {
-        titleEl.textContent = snippet.title || '';
-        descEl.textContent = snippet.description || '';
-        ytLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+    const title = document.getElementById('modal-video-title');
+    const date = document.getElementById('modal-video-date');
+    const views = document.getElementById('modal-video-views');
+    const likes = document.getElementById('modal-video-likes');
+    const description = document.getElementById('modal-video-description');
+    const youtubeLink = document.getElementById('youtube-link');
+    const shareBtn = document.getElementById('share-btn');
+    const showMoreBtn = document.querySelector('.show-more-btn');
+
+    // Mettre à jour le contenu
+    title.textContent = snippet.title;
+    date.innerHTML = `<i class="far fa-calendar"></i> ${formatDate(snippet.publishedAt)}`;
+    views.innerHTML = `<i class="far fa-eye"></i> ${formatViews(snippet.viewCount || '0')} vues`;
+    likes.innerHTML = `<i class="far fa-heart"></i> ${formatViews(snippet.likeCount || '0')} j'aime`;
+    description.textContent = snippet.description;
+    youtubeLink.href = `https://www.youtube.com/watch?v=${videoId}`;
+
+    // Gérer le bouton "Afficher plus"
+    const descriptionText = description.textContent;
+    const maxLength = 200; // Nombre de caractères avant de tronquer
+    
+    if (descriptionText.length > maxLength) {
+        showMoreBtn.classList.remove('hidden');
+        showMoreBtn.onclick = () => {
+            description.classList.toggle('expanded');
+            showMoreBtn.innerHTML = description.classList.contains('expanded') 
+                ? '<i class="fas fa-chevron-up"></i>' 
+                : '<i class="fas fa-ellipsis-h"></i>';
+        };
+    } else {
+        showMoreBtn.classList.add('hidden');
     }
-    modal.style.display = 'block';
+
+    // Configurer le lecteur YouTube
+    player.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+
+    // Configurer le bouton de partage
+    shareBtn.onclick = () => shareVideo(videoId, snippet.title);
+
+    // Afficher la modal
+    modal.classList.add('active');
     document.body.style.overflow = 'hidden';
+
+    // Gérer la fermeture
+    const closeModal = () => {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+        player.innerHTML = '';
+        description.classList.remove('expanded');
+        showMoreBtn.innerHTML = '<i class="fas fa-ellipsis-h"></i>';
+    };
+
+    // Fermer avec le bouton
+    document.querySelector('.close-modal').onclick = closeModal;
+
+    // Fermer avec Escape
+    document.addEventListener('keydown', function closeOnEscape(e) {
+        if (e.key === 'Escape') {
+            closeModal();
+            document.removeEventListener('keydown', closeOnEscape);
+        }
+    });
+
+    // Fermer en cliquant en dehors
+    modal.addEventListener('click', function closeOnOutside(e) {
+        if (e.target === modal) {
+            closeModal();
+            modal.removeEventListener('click', closeOnOutside);
+        }
+    });
 }
 
-// Fermeture du modal
 function closeVideoModal() {
     const modal = document.getElementById('video-modal');
-    const player = document.getElementById('video-player');
-    if (modal && player) {
-        player.innerHTML = '';
-        modal.style.display = 'none';
-        document.body.style.overflow = '';
-    }
-}
-
-// Ajout des gestionnaires d'événements pour la fermeture de la modal
-document.addEventListener('DOMContentLoaded', function() {
-    const modal = document.getElementById('video-modal');
-    const closeBtn = document.querySelector('.close-modal');
+    const videoPlayer = document.getElementById('video-player');
     
-    if (modal && closeBtn) {
-        // Fermeture avec le bouton X
-        closeBtn.addEventListener('click', closeVideoModal);
-        
-        // Fermeture en cliquant en dehors de la modal
-        modal.addEventListener('click', function(e) {
-            if (e.target === modal) {
-                closeVideoModal();
-            }
-        });
-        
-        // Fermeture avec la touche Escape
-        document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape' && modal.style.display === 'block') {
-                closeVideoModal();
-            }
-        });
-    }
-});
+    // Arrêter la vidéo
+    videoPlayer.innerHTML = '';
+    
+    // Cacher la modal
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+}
 
 // Partage de vidéo
 function shareVideo(videoId, title) {

@@ -348,25 +348,34 @@
     <!-- Modal pour la lecture de vidéo -->
     <div id="video-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <div class="video-player-container">
-                <div id="video-player"></div>
-            </div>
-            <div class="video-details">
-                <h2 id="modal-video-title"></h2>
-                <div class="video-meta">
-                    <span id="modal-video-date"></span>
-                    <span id="modal-video-views"></span>
-                    <span id="modal-video-likes"></span>
+            <button class="close-modal" aria-label="Fermer">&times;</button>
+            <div class="modal-layout">
+                <div class="video-section">
+                    <div class="video-player-container">
+                        <div id="video-player"></div>
+                    </div>
                 </div>
-                <p id="modal-video-description"></p>
-                <div class="video-actions">
-                    <a id="youtube-link" title="Voir sur YouTube" href="#" target="_blank" class="btn btn-youtube">
-                        Voir sur YouTube
-                    </a>
-                    <button id="share-btn" class="btn btn-share">
-                        Partager
-                    </button>
+                <div class="info-section">
+                    <h2 id="modal-video-title"></h2>
+                    <div class="video-meta">
+                        <span id="modal-video-date"></span>
+                        <span id="modal-video-views"></span>
+                        <span id="modal-video-likes"></span>
+                    </div>
+                    <div class="description-container">
+                        <p id="modal-video-description"></p>
+                        <button class="show-more-btn" aria-label="Afficher plus">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </button>
+                    </div>
+                    <div class="video-actions">
+                        <a id="youtube-link" title="Voir sur YouTube" href="#" target="_blank" class="btn btn-youtube">
+                            Voir sur YouTube
+                        </a>
+                        <button id="share-btn" class="btn btn-share">
+                            Partager
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
