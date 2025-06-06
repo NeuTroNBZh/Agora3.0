@@ -2076,7 +2076,9 @@ footer::before {
     margin: 2rem auto;
     background: rgba(20,30,50,0.98);
     border-radius: 16px;
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .close-modal {
@@ -2178,6 +2180,9 @@ footer::before {
     .modal-content {
         width: 95%;
         margin: 1rem auto;
+        max-height: 90vh;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
     
     .video-actions {
@@ -2985,7 +2990,9 @@ body.home-bg {
     width: 90%;
     max-width: 100%;
     margin: 1rem auto;
-    overflow: hidden;
+    max-height: 90vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Fix pour les formulaires */
@@ -3021,6 +3028,9 @@ body.home-bg {
     
     .modal-content {
         width: 95%;
+        max-height: 90vh;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 }
 
@@ -3047,6 +3057,11 @@ body.home-bg {
         padding: 0.5rem;
         margin: 0;
         overflow-x: hidden;
+    }
+
+    .modal-content {
+        max-height: 90vh;
+        overflow-y: auto;
     }
 
     /* Fix pour les widgets Discord */
@@ -3120,6 +3135,9 @@ body.home-bg {
         width: 95%;
         margin: 0.5rem auto;
         padding: 0.5rem;
+        max-height: 90vh;
+        overflow-x: hidden;
+        overflow-y: auto;
     }
 
     /* Fix pour les grilles */
